@@ -340,13 +340,16 @@
 
   .topic-list-body {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(calc(50% - 0.75em), 100%), 1fr)
-    );
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 1.5em;
     row-gap: 1.5em;
     border: 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    .topic-list-body {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   .topic-list-item {
@@ -387,6 +390,7 @@
   .topic-thumbnail-blog-data {
     grid-area: data;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     gap: 1em;
   }
